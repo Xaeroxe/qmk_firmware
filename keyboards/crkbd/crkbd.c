@@ -43,6 +43,8 @@ oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
 }
 
 static void oled_render_layer_state(void) {
+    // Extra newline to work around my defective OLED
+    oled_write_ln_P(PSTR(""), false);
     oled_write_P(PSTR("Layer: "), false);
     switch (get_highest_layer(layer_state)) {
         case 0:
